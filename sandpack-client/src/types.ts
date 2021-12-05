@@ -184,4 +184,12 @@ export type SandpackMessage = BaseSandpackMessage &
     | {
         type: "get-transpiler-context";
       }
+    | {
+        type: "console";
+        logs: {
+          method: string;
+          id: string;
+          data: string[];
+        }[];
+      }
   );

@@ -14,18 +14,24 @@ export const ReactDevTool: React.FC = () => (
       files: {
         "/App.js": `export default function App() {
   
-    return <h1 onClick={()=>console.log("foo")}>Hello World</h1>
+    return <>
+      <h1 onClick={()=>console.log({ foo: [] })}>Hello World</h1>
+      <h1 onClick={()=>{
+        console.log("foo", "baz")
+        console.error("foo", "baz")
+      }}>Hello World</h1>
+</>
   }
   `,
       },
     }}
   >
-    <SandpackLayout theme="sandpack-dark">
+    <SandpackLayout>
       <SandpackCodeEditor />
       <SandpackPreview />
     </SandpackLayout>
 
-    <SandpackLayout theme="sandpack-dark">
+    <SandpackLayout style={{ marginTop: 12 }}>
       <SandpackConsole />
     </SandpackLayout>
   </SandpackProvider>
